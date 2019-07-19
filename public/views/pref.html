@@ -22,6 +22,8 @@
     <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+<!-- FIREBASE - AUTH CDN -->
+<script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
 
 
     <!-- materalize Compiled and minified CSS -->
@@ -426,9 +428,38 @@
 
     $(document).on("click", "#submit", function () {
 
-        $.post("/api/pref", function(req, res) {
-            
-        })
+        $.ajax({
+          url: "/api/pref",
+          method: "POST",
+          data: {
+            id: userId,
+            vodka: 1,
+            vodka: 1,
+            gin: 1,
+            rum: 1,
+            tequila: 1,
+            whiskey: 1,
+            triple_sec: 1,
+            jagermeister: 1,
+            kahlua: 1,
+            champagne: 1,
+            coffee: 1,
+            coca_cola: 1,
+            cream: 1,
+            soda_water: 1,
+            milk: 1,
+            grenadine: 1,
+            orange_juice: 1,
+            cranberry_juice: 1,
+            sugar: 1,
+            orange: 1,
+            banana: 1,
+            lemon: 1,
+            lime: 1,
+            pineapple: 1,
+            strawberries: 1
+          }
+        });
 
         window.location = "/main";
     })
@@ -465,6 +496,7 @@
         $('.modal').modal('open');
         
     })
+    
 
 
 

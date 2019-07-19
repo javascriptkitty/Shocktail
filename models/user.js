@@ -1,24 +1,26 @@
-module.exports = function (sequelize, DataTypes) {
-    var User = sequelize.define("User", {
-        username: {
-            type: DataTypes.STRING,
-            validate: {
-                // allowNull: false,
-                // notEmpty: true,
-                len: [1, 16]
-            }
-        },
-        password: {
-            type: DataTypes.STRING,
-            validate: {
-                // allowNull: false
-            }
-        },
-        id: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true
-        }
-    });
-    return User;
-}
+module.exports = function(sequelize, DataTypes) {
+  var User = sequelize.define("User", {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    username: {
+      type: DataTypes.STRING,
+      validate: {
+        //        allowNull: false,
+        // notEmpty: true,
+        len: [1, 32]
+      }
+    },
+    firebaseId: {
+      type: DataTypes.STRING,
+      validate: {
+        //        allowNull: false,
+        // notEmpty: true,
+        len: [1, 32]
+      }
+    }
+  });
+  return User;
+};
