@@ -403,7 +403,7 @@
   <script>
     // var cocktailArray = ['Vodka', 'Rum', 'Tequila', 'Gin', 'Triple Sec', 'Whiskey', 'Kahlua', 'Champagne', 'Jagermeister', 'Orange', 'Banana', 'Lemon', 'Pineapple', 'Lime', 'Strawberry', 'Cream', 'orange Juice', 'Milk', 'Cranberry Juice', 'Soda Water', 'Coffee', 'Coca-Cola', 'Sugar Syrup', 'Grenadine'];
         var boolArray = [];
-        for (var i = 0; i < 27; i++) {
+        for (var i = 0; i < 22; i++) {
             var currentBool = $(this).attr("data-id=" + " " + i + " ");
             var currentPref = currentBool.attr("data-bool");
             boolArray.push(currentPref);
@@ -449,31 +449,31 @@
           method: "POST",
           data: {
             id: userId,
-            vodka: 1,
-            vodka: 1,
-            gin: 1,
-            rum: 1,
-            tequila: 1,
-            whiskey: 1,
-            triple_sec: 1,
-            jagermeister: 1,
-            kahlua: 1,
-            champagne: 1,
-            coffee: 1,
-            coca_cola: 1,
-            cream: 1,
-            soda_water: 1,
-            milk: 1,
-            grenadine: 1,
-            orange_juice: 1,
-            cranberry_juice: 1,
-            sugar: 1,
-            orange: 1,
-            banana: 1,
-            lemon: 1,
-            lime: 1,
-            pineapple: 1,
-            strawberries: 1
+            vodka: boolArray[0],
+            rum: boolArray[1],
+            tequila: boolArray[2],
+            gin: boolArray[3],
+            triple_sec: boolArray[4],
+            whiskey: boolArray[5],
+            kahlua: boolArray[6],
+            champagne: boolArray[7],
+            jagermeister: boolArray[8],
+            orange: boolArray[9],
+            banana: boolArray[10],
+            lemon: boolArray[11],
+            pineapple: boolArray[12],
+            lime: boolArray[13],
+            strawberries: boolArray[14],
+            cream: boolArray[15],
+            orange_juice: boolArray[16],
+            milk: boolArray[17],
+            cranberry_juice: boolArray[18],
+            coffee: boolArray[19],
+            coca_cola: boolArray[20],
+            sugar_water: boolArray[21],
+            grenadine: boolArray[22]
+            
+           
           }
         });
 

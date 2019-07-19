@@ -239,17 +239,36 @@ function searchByIngredients(event) {
   });
 }
 
+var signedInUser;
+var userId;
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    signedInUser = user;
+  } else {
+    window.location = "/";
+  }
+
+  $.ajax({
+    url: "/api/users/" + signedInUser.uid,
+    method: "GET"
+  }).then(function(user) {
+    userId = user.id;
+    alert("local userId:" + userId);
+  });
+});
+
 function getPref() {
-  $.get("/api/users/:" + id, function(data) {
+  $.get("/api/pref/" + userId, function(data) {
     console.log("id", data);
+    debugger;
     data = data;
   });
 }
 
 function displayCarousel() {
   //debugger;
-  //var prefs = getPref();
-  var prefs = ["whiskey", "Triple sec", "campari"];
+  var prefs = getPref();
+  //var prefs = ["whiskey", "Triple sec", "campari"];
 
   for (var j = 0; j < prefs.length; j++) {
     var queryURL =
@@ -260,7 +279,6 @@ function displayCarousel() {
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-      console.log(response);
       var drinks = response.drinks;
       for (var i = 0; i < drinks.length; i++) {
         var id = drinks[i].idDrink;
@@ -296,5 +314,9 @@ function onReady() {
 // $(document).ready(function() {
 //   $(".tap-target").tapTarget("open");
 // });
+$("#settings").on("click", function() {
+  debugger;
+  window.location = "/pref";
+});
 
 $(onReady);

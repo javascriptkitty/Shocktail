@@ -85,7 +85,7 @@ $("#login").on("click", function(event) {
       // response only comes if sign in succeeds
       console.log("SIGN IN: ", res);
       // redirect page to "redirect.html" file
-      window.location = "/pref";
+      window.location = "/main";
     })
     .catch(function(error) {
       // Dynamically responds with appropriate error message (e.g. "Email format invalid", "Incorrect password", "User does not exist", etc.)

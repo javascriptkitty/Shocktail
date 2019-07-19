@@ -141,6 +141,16 @@ body {
 .coctailSearch h4 {
   color: #ffe4c4;
 }
+.settings {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+}
+#settings {
+  margin: 75px;
+  cursor: pointer;
+}
 
 @media only screen and (max-width: 600px) {
   .logo {
