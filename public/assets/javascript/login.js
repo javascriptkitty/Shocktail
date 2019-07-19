@@ -43,10 +43,10 @@ $("#sign-up").on("click", function(event) {
       });
     })
     .then(function() {
-      return $.post("/api/users", {
+      $.post("/api/users", {
         firebaseId: uid,
         username: username
-      });
+      }).then(function() {});
     })
     .then(function() {
       // After it's done setting to database, redirect to other page
