@@ -43,16 +43,17 @@ $("#sign-up").on("click", function(event) {
       });
     })
     .then(function() {
-      $.post("/api/users", {
+      return $.post("/api/users", {
         firebaseId: uid,
         username: username
-      }).then(function() {});
+      });
     })
     .then(function() {
       // After it's done setting to database, redirect to other page
-      window.location = "/";
+      window.location = "/pref";
     })
     .catch(function(error) {
+      alert("Username already exists");
       // If email is already taken, error message indicating this will be logged to console (you could display it to the HTML instead)
       console.log(error.message);
     });

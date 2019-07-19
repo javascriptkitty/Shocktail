@@ -8,9 +8,6 @@
     <title>Project 2</title>
 
     <!-- Compiled and minified JavaScript -->
-
-    <link type="text/css" rel="stylesheet" href="../assets/css/materialize.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../assets/css/materialize.min.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="../assets/css/glass.css" />
     <link type="text/css" rel="stylesheet" href="../assets/css/style.css" />
     <link type="text/css" rel="stylesheet" href="../assets/css/wine.css" />
@@ -22,8 +19,9 @@
     <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-<!-- FIREBASE - AUTH CDN -->
-<script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
+
+    <!-- FIREBASE - AUTH CDN -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
 
 
     <!-- materalize Compiled and minified CSS -->
@@ -35,13 +33,11 @@
 
     <script type="text/javascript" src="https://leaverou.github.io/prefixfree/prefixfree.min.js"></script>
     <script type="text/javascript" src="../assets/javascript/auth.js"></script>
-    <script type="text/javascript" src="../assets/javascript/login.js"></script>
 
 </head>
 
 <body>
    
-
 
     <!-- <div id="modal1" class="modal modal-fixed-footer">
 
@@ -418,6 +414,26 @@
 </body>
 
 <script>
+
+    var signedInUser;
+    var userId;
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            signedInUser = user;
+        } else {
+            window.location = '/';
+        }
+       
+        $.ajax({
+          url: "/api/users/"+signedInUser.uid,
+          method: "GET"
+        })
+        .then(function (user) {
+             userId = user.id;
+            alert('local userId:' + userId);
+        });
+    });
+
     $(document).ready(function () {
         $('.modal').modal({
             opacity: 1,

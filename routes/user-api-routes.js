@@ -9,10 +9,10 @@ module.exports = function(app) {
   });
 
   // Find one user with id in req.params.id and return as json object
-  app.get("/api/users/:id", function(req, res) {
+  app.get("/api/users/:firebaseId", function(req, res) {
     db.User.findOne({
       where: {
-        id: req.params.id
+        firebaseId: req.params.firebaseId
       }
     }).then(function(dbUser) {
       res.json(dbUser);
