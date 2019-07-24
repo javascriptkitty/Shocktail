@@ -257,19 +257,19 @@ firebase.auth().onAuthStateChanged(function(user) {
   });
 });
 
-function getPref() {
-  $.get("/api/pref/" + userId, function(data) {
-    debugger;
-    console.log("id", data);
-    debugger;
-    data = data;
-  });
-}
+// function getPref() {
+//   $.get("/api/pref/" + userId, function(data) {
+//     debugger;
+//     console.log("id", data);
+//     debugger;
+//     data = data;
+//   });
+// }
 
 function displayCarousel() {
   //debugger;
-  var prefs = getPref();
-  //var prefs = ["whiskey", "Triple sec", "campari"];
+  //var prefs = getPref();
+  var prefs = ["whiskey", "Triple sec", "campari"];
 
   for (var j = 0; j < prefs.length; j++) {
     var queryURL =
