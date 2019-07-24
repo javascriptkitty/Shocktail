@@ -34,6 +34,8 @@
     <script type="text/javascript" src="https://leaverou.github.io/prefixfree/prefixfree.min.js"></script>
     <script type="text/javascript" src="../assets/javascript/auth.js"></script>
 
+    <link href="https://fonts.googleapis.com/css?family=Advent+Pro|Bubbler+One|Gruppo|Inknut+Antiqua|Marcellus|Thasadith&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -84,7 +86,7 @@
             <div class="jumbotron" id="jumbo">
                 <div class="container">
                     <div class="appName">
-                        <img src="../assets/images/icon1.png" alt="">
+                        <img src="../assets/images/icon1_.png" alt="">
                         <h1 class="black-text  ">SHOCKTAIL</h1>
                     </div>
                 </div>
@@ -395,12 +397,15 @@
 
 
     </div>
-    <div class="btn waves-effect waves-light" type="submit" id="submit" name="action">Save Pref
-        <i class="material-icons right">send</i>
-    </div>
-    <a href = "/main" class="btn waves-effect waves-light" type="submit" id="submit" name="action">Go to Main
-        <i class="material-icons right">send</i>
-    </a>
+
+    <div class="submitAndSave">
+        <a class="btn waves-effect waves-light" type="button" id="savepref" >Save 
+            <i class="material-icons right">done</i>
+        </a>
+        <a href = "/main" class="btn waves-effect waves-light" type="submit" id="submit" name="action">Go to Main
+            <i class="material-icons right">arrow_forward_ios</i>
+        </a>
+   </div> 
 
     <script type="text/javascript" src="../assets/javascript/auth.js"></script>
   
@@ -410,7 +415,7 @@
     // var cocktailArray = ['Vodka', 'Rum', 'Tequila', 'Gin', 'Triple Sec', 'Whiskey', 'Kahlua', 'Champagne', 'Jagermeister', 'Orange', 'Banana', 'Lemon', 'Pineapple', 'Lime', 'Strawberry', 'Cream', 'orange Juice', 'Milk', 'Cranberry Juice', 'Soda Water', 'Coffee', 'Coca-Cola', 'Sugar Syrup', 'Grenadine'];
        
     $(document).on("click", ".btn-small", function () {
-        debugger;
+        
         var bool = $(this).attr("data-bool");
         if (bool === "0") {
 
@@ -426,16 +431,8 @@
 
     })
     
-   
-        // for (var i = 0; i < 22; i++) {
-        //     debugger;
-        //     var currentBool = $(this).attr("data-id=" + " " + i + " ");
-        //     var currentPref = currentBool.attr("data-bool");
-        //     boolArray.push(true);
-        // }
-        // console.log(currentPref);
 
-    $(document).on("click", "#submit", function () {
+    $(document).on("click", "#savepref", function () {
         var boolArray = [];
         $('a[data-bool]').each(function(){
            // debugger;
@@ -467,21 +464,15 @@
             coca_cola: boolArray[20],
             sugar_water: boolArray[21],
             grenadine: boolArray[22]
-            
-           
           };
 
-          debugger;
+    //      debugger;
         $.ajax({
           url: "/api/pref",
           method: "POST",
           data: data
         });
-
-       // window.location = "/main";
     })
-
-
 
     //auth
     var signedInUser;
@@ -499,7 +490,7 @@
         })
         .then(function (user) {
              userId = user.id;
-            alert('local userId:' + userId);
+           // alert('local userId:' + userId);
         });
     });
 
@@ -518,7 +509,6 @@
     $(document).on("click", "#disagree", function () {
         alert(
             "You should be at least 21 to enter.",
-            
         )
         $('.modal').modal('open');
         

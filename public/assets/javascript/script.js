@@ -253,16 +253,17 @@ firebase.auth().onAuthStateChanged(function(user) {
     method: "GET"
   }).then(function(user) {
     userId = user.id;
-    alert("local userId:" + userId);
+    // alert("local userId:" + userId);
   });
 });
 
 function getPref() {
-  // $.get("/api/pref/" + userId, function(data) {
-  //   console.log("id", data);
-  //   debugger;
-  //   data = data;
-  // });
+  $.get("/api/pref/" + userId, function(data) {
+    debugger;
+    console.log("id", data);
+    debugger;
+    data = data;
+  });
 }
 
 function displayCarousel() {
