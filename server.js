@@ -1,6 +1,5 @@
 var express = require("express");
 
-
 // Sets up the Express App
 var app = express();
 var PORT = process.env.PORT || 8080;
@@ -19,8 +18,6 @@ require("./routes/user-api-routes.js")(app);
 require("./routes/cocktail-api-routes.js")(app);
 require("./routes/reviews-api-routes.js")(app);
 require("./routes/pref-api-routes.js")(app);
-
-
 
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {

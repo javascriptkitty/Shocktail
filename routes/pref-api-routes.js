@@ -15,6 +15,9 @@ module.exports = function(app) {
   });
 
   app.post("/api/pref", function(req, res) {
-    db.Pref.upsert(req.body);
+    debugger;
+    db.Pref.upsert(req.body).then(function(dbPref) {
+      res.json(dbPref);
+    });
   });
 };

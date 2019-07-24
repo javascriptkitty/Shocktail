@@ -16,15 +16,15 @@ var database = firebase.database();
 // -------
 // When #sign-up button is clicked:
 $("#sign-up").on("click", function(event) {
-  event.preventDefault();
+event.preventDefault();
 
-  // get email and password values of text inputs
-  var username = $("#su-username")
-    .val()
-    .trim();
-  var password = $("#su-password")
-    .val()
-    .trim();
+// get email and password values of text inputs
+var username = $("#su-username")
+  .val()
+  .trim();
+var password = $("#su-password")
+  .val()
+  .trim();
 
   var uid;
   // pass email and password to Firebase's sign up function

@@ -258,11 +258,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 function getPref() {
-  $.get("/api/pref/" + userId, function(data) {
-    console.log("id", data);
-    debugger;
-    data = data;
-  });
+  // $.get("/api/pref/" + userId, function(data) {
+  //   console.log("id", data);
+  //   debugger;
+  //   data = data;
+  // });
 }
 
 function displayCarousel() {
