@@ -1,5 +1,5 @@
 function dropDown() {
-  debugger;
+
   var name = this.id;
   if ($("#" + name + "Div").css("display") == "none") {
     $("#" + name + "Div").show();
@@ -73,6 +73,7 @@ function searchByName(event) {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
+    $("#usersInputName").val("");
     $(".column").empty();
     console.log(response);
     var drinks = response.drinks;
@@ -82,9 +83,11 @@ function searchByName(event) {
         .attr("src", "../assets/images/sad-cartoon-margarita.png")
         .css({ width: "50%", clear: "both" });
       $("#col1")
-        .empty()
         .html("<h4>None Found</h4>")
         .append(img);
+        var coctailsList = document.getElementById("coctailsList");
+      coctailsList.scrollIntoView(true);
+
     } else {
       for (var i = 0; i < drinks.length; i++) {
         var div = createCard(drinks[i]);
@@ -164,7 +167,7 @@ function showRandom() {
     $(".searchBar").hide();
     $(".carousel").hide();
 
-    $(".coctailsList").empty();
+    $(".column").empty();
     $(".popUp")
       .empty()
       .show()
@@ -220,6 +223,9 @@ function searchByIngredients(event) {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
+    $(".column").empty();
+    instance = M.Sidenav.getInstance(document.getElementById("slide-out"));
+    instance.close();
     debugger;
     var drinks = response.drinks;
     if (drinks == "None Found") {
@@ -227,9 +233,10 @@ function searchByIngredients(event) {
         .attr("src", "../assets/images/sad-cartoon-margarita.png")
         .css({ width: "50%", clear: "both" });
       $("#col1")
-        .empty()
         .html("<h4>None Found</h4>")
         .append(img);
+         var coctailsList = document.getElementById("coctailsList");
+         coctailsList.scrollIntoView(true);
     } else {
       for (var i = 0; i < drinks.length; i++) {
         var id = drinks[i].idDrink;

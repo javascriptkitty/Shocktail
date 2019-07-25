@@ -54,6 +54,7 @@
   background-color: rgba(0, 56, 65) !important;
   border-radius: 50px;
   font-size: 1.2em !important;
+  cursor: pointer;
 }
 .submitAndSave {
   
