@@ -50,13 +50,10 @@
 }
 
 #submit,
-#savepref,
-#agree,
-#disagree,
-.btn {
+#savepref {
   background-color: rgba(0, 56, 65) !important;
   border-radius: 50px;
-  color: whitesmoke;
+  color: black;
   font-weight: bold;
   font-size: 1.2em !important;
   cursor: pointer;
