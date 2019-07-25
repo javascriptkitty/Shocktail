@@ -251,26 +251,36 @@ firebase.auth().onAuthStateChanged(function(user) {
   $.ajax({
     url: "/api/users/" + signedInUser.uid,
     method: "GET"
-  }).then(function(user) {
-    userId = user.id;
-    // alert("local userId:" + userId);
-  });
+  })
+    .then(function(user) {
+      userId = user.id;
+    })
+    .then(getPref)
+    .then(displayCarousel);
 });
 
-// function getPref() {
-//   $.get("/api/pref/" + userId, function(data) {
-//     debugger;
-//     console.log("id", data);
-//     debugger;
-//     data = data;
-//   });
-// }
+var prefs = [];
+
+function getPref() {
+  var prefPromise = $.get("/api/pref/" + userId, function(data) {
+    debugger;
+    console.log("id", data);
+    debugger;
+    data = data[0];
+    for (var prop in data) {
+      if (data[prop] === true) {
+        prefs.push(prop);
+      }
+    }
+
+    return prefs;
+  });
+
+  return prefPromise;
+}
 
 function displayCarousel() {
   //debugger;
-  //var prefs = getPref();
-  var prefs = ["whiskey", "Triple sec", "campari"];
-
   for (var j = 0; j < prefs.length; j++) {
     var queryURL =
       "https://www.thecocktaildb.com/api/json/v2/8673533/filter.php?i=" +
@@ -306,18 +316,10 @@ function onReady() {
   createInput(alcoholic, "alcoholic");
   createInput(nonAlcoholic, "nonAlcoholic");
   createInput(fruits, "fruits");
-  displayCarousel();
+  //displayCarousel();
   $("#dropAlco").on("click", dropDown);
   $("#dropNonAlco").on("click", dropDown);
   $("#dropFruits").on("click", dropDown);
 }
-
-// $(document).ready(function() {
-//   $(".tap-target").tapTarget("open");
-// });
-$("#settings").on("click", function() {
-  debugger;
-  window.location = "/pref";
-});
 
 $(onReady);
