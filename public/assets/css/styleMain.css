@@ -117,8 +117,8 @@ body {
   }
 .popUp {
   position: fixed;
-  height: 40%;
-  width: 40%;
+  height: 35%;
+  width: 35%;
   left: 35%;
   font-size: 1.1em;
   top: 20%;

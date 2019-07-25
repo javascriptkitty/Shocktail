@@ -33,31 +33,35 @@
 #nonAlcoholicBtn,
 #fruitsBtn {
   margin-top: 20px;
-  display:flex;
-  flex-wrap:wrap;
+  display: flex;
+  flex-wrap: wrap;
   /* flex-direction: column; */
   justify-content: space-around;
 }
 
 #alcoholicBtn .btn-small,
- #nonAlcoholicBtn .btn-small,
- #fruitsBtn .btn-small  {
+#nonAlcoholicBtn .btn-small,
+#fruitsBtn .btn-small {
   width: 200px;
-  font-size:1.2em;
+  font-size: 1.2em;
   border-radius: 20px;
   background-color: rgba(0, 56, 65);
-  margin: 10px
+  margin: 10px;
 }
 
 #submit,
-#savepref {
+#savepref,
+#agree,
+#disagree,
+.btn {
   background-color: rgba(0, 56, 65) !important;
   border-radius: 50px;
+  color: whitesmoke;
+  font-weight: bold;
   font-size: 1.2em !important;
   cursor: pointer;
 }
 .submitAndSave {
-  
   display: flex;
   justify-content: space-around;
 }
@@ -75,27 +79,25 @@ body {
   margin-bottom: 0;
 }
 
-.card{
+.card {
   width: 100% !important;
 }
 
- .card .card-reveal{
-    padding: 10px 5px !important;
-  }
+.card .card-reveal {
+  padding: 10px 5px !important;
+}
 
 @media only screen and (min-width: 900px) {
- 
-.rowAllCards{
-  display:flex;
-
-}
-.card{
-  width: 90% !important;
-}
+  .rowAllCards {
+    display: flex;
+  }
+  .card {
+    width: 90% !important;
+  }
 }
 
 @media only screen and (max-width: 900px) and (min-width: 750px) {
-  .card .card-reveal{
+  .card .card-reveal {
     padding: 10px 5px !important;
   }
 }
