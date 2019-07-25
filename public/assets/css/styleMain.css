@@ -82,7 +82,7 @@ body {
 }
 
 .card {
-  font-size: 1.3em;
+  font-size: 1.4em;
 }
 
 .input-field {
@@ -108,12 +108,16 @@ body {
   margin-top: -40px !important;
 }
 
+.carousel-item .card{
+ font-size: 1em;
+}
+
 .popUp {
   position: fixed;
-
   height: 40%;
   width: 40%;
   left: 35%;
+  font-size: 1.1em;
   top: 20%;
   border-radius: 10px;
 }
